@@ -1,0 +1,20 @@
+# B205 Computer Networks - Messaging Application
+# Python Dependencies
+
+# GUI Framework (included in Python standard library)
+# tkinter - No pip install needed
+
+# Image handling for photo display in GUI
+Pillow>=9.0.0
+
+# Note: The following are part of Python standard library (no install needed):
+# - socket (networking)
+# - threading (multi-threading)
+# - sqlite3 (database)
+# - json (message serialization)
+# - base64 (file encoding)
+# - logging (logging framework)
+# - configparser (configuration management)
+# - datetime (timestamps)
+# - struct (binary packing)
+# - os, sys (system operations)
