@@ -1,0 +1,380 @@
+{
+  "protocols": {
+    "TCP": 541,
+    "ICMP": 110,
+    "UDP": 27
+  },
+  "src_ips": {
+    "203.0.113.45": 101,
+    "198.51.100.33": 100,
+    "192.168.1.20": 54,
+    "185.220.101.50": 50,
+    "192.168.1.15": 44,
+    "192.168.1.25": 42,
+    "192.168.1.10": 42,
+    "192.168.1.40": 35,
+    "192.168.1.30": 10,
+    "64.11.245.93": 1,
+    "212.23.207.28": 1,
+    "240.11.54.198": 1,
+    "113.143.184.107": 1,
+    "229.5.45.68": 1,
+    "138.36.24.224": 1
+  },
+  "dst_ips": {
+    "192.168.1.10": 201,
+    "192.168.1.100": 200,
+    "93.184.216.34": 54,
+    "192.168.1.50": 50,
+    "8.8.8.8": 37,
+    "192.168.1.80": 35,
+    "104.16.132.229": 28,
+    "142.250.185.46": 18,
+    "192.168.1.60": 15,
+    "64.233.163.27": 14,
+    "192.168.1.70": 10,
+    "209.85.128.27": 9,
+    "74.125.193.27": 7
+  },
+  "ip_pairs": [
+    {
+      "src": "203.0.113.45",
+      "dst": "192.168.1.10",
+      "count": 101
+    },
+    {
+      "src": "198.51.100.33",
+      "dst": "192.168.1.10",
+      "count": 100
+    },
+    {
+      "src": "185.220.101.50",
+      "dst": "192.168.1.50",
+      "count": 50
+    },
+    {
+      "src": "192.168.1.40",
+      "dst": "192.168.1.80",
+      "count": 35
+    },
+    {
+      "src": "192.168.1.20",
+      "dst": "93.184.216.34",
+      "count": 26
+    },
+    {
+      "src": "192.168.1.10",
+      "dst": "8.8.8.8",
+      "count": 16
+    },
+    {
+      "src": "192.168.1.15",
+      "dst": "192.168.1.60",
+      "count": 15
+    },
+    {
+      "src": "192.168.1.25",
+      "dst": "64.233.163.27",
+      "count": 14
+    },
+    {
+      "src": "192.168.1.20",
+      "dst": "8.8.8.8",
+      "count": 12
+    },
+    {
+      "src": "192.168.1.30",
+      "dst": "192.168.1.70",
+      "count": 10
+    },
+    {
+      "src": "192.168.1.20",
+      "dst": "104.16.132.229",
+      "count": 10
+    },
+    {
+      "src": "192.168.1.15",
+      "dst": "93.184.216.34",
+      "count": 10
+    },
+    {
+      "src": "192.168.1.10",
+      "dst": "93.184.216.34",
+      "count": 10
+    },
+    {
+      "src": "192.168.1.10",
+      "dst": "104.16.132.229",
+      "count": 10
+    },
+    {
+      "src": "192.168.1.15",
+      "dst": "8.8.8.8",
+      "count": 9
+    },
+    {
+      "src": "192.168.1.25",
+      "dst": "209.85.128.27",
+      "count": 9
+    },
+    {
+      "src": "192.168.1.25",
+      "dst": "93.184.216.34",
+      "count": 8
+    },
+    {
+      "src": "192.168.1.15",
+      "dst": "104.16.132.229",
+      "count": 8
+    },
+    {
+      "src": "192.168.1.25",
+      "dst": "74.125.193.27",
+      "count": 7
+    },
+    {
+      "src": "192.168.1.20",
+      "dst": "142.250.185.46",
+      "count": 6
+    }
+  ],
+  "dst_ports": {
+    "80": {
+      "count": 251,
+      "service": "HTTP"
+    },
+    "22": {
+      "count": 50,
+      "service": "SSH"
+    },
+    "443": {
+      "count": 50,
+      "service": "HTTPS"
+    },
+    "25": {
+      "count": 30,
+      "service": "SMTP"
+    },
+    "53": {
+      "count": 27,
+      "service": "DNS"
+    },
+    "3306": {
+      "count": 20,
+      "service": "MySQL"
+    },
+    "21": {
+      "count": 15,
+      "service": "FTP"
+    },
+    "5432": {
+      "count": 15,
+      "service": "PostgreSQL"
+    },
+    "23": {
+      "count": 10,
+      "service": "Telnet"
+    },
+    "500": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "750": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "770": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "350": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "1010": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "140": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "660": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "670": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "530": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "160": {
+      "count": 1,
+      "service": "Unknown"
+    },
+    "420": {
+      "count": 1,
+      "service": "Unknown"
+    }
+  },
+  "traffic_stats": {
+    "total_packets": 678,
+    "average_size": 38.87315634218289,
+    "total_traffic_kb": 25.73828125
+  },
+  "threats": [
+    {
+      "type": "Port Scan",
+      "source_ip": "203.0.113.45",
+      "ports_scanned": 101,
+      "severity": "HIGH",
+      "description": "Source 203.0.113.45 attempted connections to 101 different ports"
+    },
+    {
+      "type": "DDoS - SYN Flood",
+      "source_ip": "203.0.113.45",
+      "target_ip": "192.168.1.10",
+      "packet_count": 101,
+      "severity": "CRITICAL",
+      "description": "Potential SYN flood: 203.0.113.45 -> 192.168.1.10 (101 SYN packets)"
+    },
+    {
+      "type": "ICMP Flood",
+      "source_ip": "198.51.100.33",
+      "target_ip": "192.168.1.10",
+      "packet_count": 100,
+      "severity": "HIGH",
+      "description": "ICMP flood detected: 198.51.100.33 -> 192.168.1.10 (100 ICMP packets)"
+    },
+    {
+      "type": "SSH Brute Force",
+      "source_ip": "185.220.101.50",
+      "target_ip": "192.168.1.50",
+      "attempt_count": 50,
+      "severity": "HIGH",
+      "description": "Possible SSH brute force: 185.220.101.50 -> 192.168.1.50 (50 attempts)"
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.20",
+      "query": "phishing-site.tk.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.20: phishing-site.tk."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.20",
+      "query": "malware-c2-server.ru.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.20: malware-c2-server.ru."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.15",
+      "query": "phishing-site.tk.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.15: phishing-site.tk."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.10",
+      "query": "botnet-command.cn.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.10: botnet-command.cn."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.10",
+      "query": "malware-c2-server.ru.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.10: malware-c2-server.ru."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.10",
+      "query": "botnet-command.cn.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.10: botnet-command.cn."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.20",
+      "query": "phishing-site.tk.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.20: phishing-site.tk."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.10",
+      "query": "malware-c2-server.ru.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.10: malware-c2-server.ru."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.15",
+      "query": "phishing-site.tk.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.15: phishing-site.tk."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.15",
+      "query": "malware-c2-server.ru.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.15: malware-c2-server.ru."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.15",
+      "query": "phishing-site.tk.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.15: phishing-site.tk."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.20",
+      "query": "botnet-command.cn.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.20: botnet-command.cn."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.15",
+      "query": "malware-c2-server.ru.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.15: malware-c2-server.ru."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.20",
+      "query": "botnet-command.cn.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.20: botnet-command.cn."
+    },
+    {
+      "type": "Suspicious DNS Query",
+      "source_ip": "192.168.1.20",
+      "query": "botnet-command.cn.",
+      "severity": "MEDIUM",
+      "description": "Suspicious DNS query from 192.168.1.20: botnet-command.cn."
+    },
+    {
+      "type": "Insecure Protocol",
+      "protocol": "Telnet",
+      "packet_count": 10,
+      "severity": "MEDIUM",
+      "description": "Insecure Telnet protocol detected (10 packets)"
+    },
+    {
+      "type": "Possible Spam",
+      "source_ip": "192.168.1.25",
+      "smtp_connections": 30,
+      "severity": "MEDIUM",
+      "description": "Excessive SMTP connections from 192.168.1.25 (30 connections)"
+    }
+  ]
+}

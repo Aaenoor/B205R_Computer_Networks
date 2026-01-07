@@ -1,0 +1,294 @@
+==========================================================================================
+COMPREHENSIVE FIREWALL RULES CONFIGURATION
+B205 Computer Networks - Task 2
+Generated: 2026-01-07 00:20:58
+==========================================================================================
+
+FIREWALL RULES SUMMARY
+------------------------------------------------------------------------------------------
+Total Rules: 22
+PERMIT Rules: 7
+DROP Rules: 10
+RATE_LIMIT Rules: 5
+
+
+==========================================================================================
+BASELINE PERMIT RULES
+==========================================================================================
+
+Rule ID: BASE-001
+Action: PERMIT
+Protocol: TCP
+Source: 192.168.1.0/24:ANY
+Destination: ANY:80
+Description: Allow outbound HTTP traffic from internal network
+Justification: Required for web browsing and application access
+------------------------------------------------------------------------------------------
+
+Rule ID: BASE-002
+Action: PERMIT
+Protocol: TCP
+Source: 192.168.1.0/24:ANY
+Destination: ANY:443
+Description: Allow outbound HTTPS traffic from internal network
+Justification: Required for secure web browsing and encrypted communications
+------------------------------------------------------------------------------------------
+
+Rule ID: BASE-003
+Action: PERMIT
+Protocol: UDP
+Source: 192.168.1.0/24:ANY
+Destination: 8.8.8.8, 8.8.4.4:53
+Description: Allow DNS queries to trusted servers
+Justification: Required for domain name resolution (limited to trusted DNS servers)
+------------------------------------------------------------------------------------------
+
+Rule ID: BASE-004
+Action: PERMIT
+Protocol: TCP
+Source: 192.168.1.40:ANY
+Destination: 192.168.1.80:3306
+Description: Allow application server to MySQL database
+Justification: Required for application database connectivity
+------------------------------------------------------------------------------------------
+
+Rule ID: BASE-005
+Action: PERMIT
+Protocol: TCP
+Source: 192.168.1.40:ANY
+Destination: 192.168.1.80:5432
+Description: Allow application server to PostgreSQL database
+Justification: Required for application database connectivity
+------------------------------------------------------------------------------------------
+
+Rule ID: BASE-006
+Action: PERMIT
+Protocol: ICMP
+Source: 192.168.1.0/24:ANY
+Destination: ANY:ANY
+Description: Allow ICMP echo requests (ping) from internal network
+Justification: Required for network diagnostics and troubleshooting
+Rate Limit: 10 packets/second per source
+------------------------------------------------------------------------------------------
+
+Rule ID: BASE-007
+Action: PERMIT
+Protocol: TCP
+Source: TRUSTED_ADMIN_IPS:ANY
+Destination: 192.168.1.50:22
+Description: Allow SSH access from trusted administrator IPs only
+Justification: Required for remote administration (restricted to admin IPs)
+------------------------------------------------------------------------------------------
+
+
+==========================================================================================
+THREAT-BASED DROP RULES
+==========================================================================================
+
+Rule ID: THREAT-001
+Action: DROP
+Protocol: TCP
+Source: 203.0.113.45:ANY
+Destination: 192.168.1.0/24:ANY
+Description: Block port scanning activity from 203.0.113.45
+Justification: Source detected scanning 101 ports - suspicious reconnaissance activity
+Threat Severity: HIGH
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: THREAT-002
+Action: DROP
+Protocol: TCP
+Source: 203.0.113.45:ANY
+Destination: 192.168.1.10:ANY
+Description: Block DDoS SYN flood from 203.0.113.45
+Justification: Source sent 101 SYN packets - DDoS attack pattern
+Threat Severity: CRITICAL
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: THREAT-003
+Action: DROP
+Protocol: ICMP
+Source: 198.51.100.33:ANY
+Destination: 192.168.1.10:ANY
+Description: Block ICMP flood from 198.51.100.33
+Justification: Source sent 100 ICMP packets - flood attack
+Threat Severity: HIGH
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: THREAT-004
+Action: DROP
+Protocol: TCP
+Source: 185.220.101.50:ANY
+Destination: 192.168.1.50:22
+Description: Block SSH brute force from 185.220.101.50
+Justification: Source made 50 SSH connection attempts - brute force attack
+Threat Severity: HIGH
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+
+==========================================================================================
+PROTOCOL SECURITY RULES
+==========================================================================================
+
+Rule ID: PROTO-001
+Action: DROP
+Protocol: TCP
+Source: ANY:ANY
+Destination: 192.168.1.0/24:23
+Description: Block all Telnet traffic (insecure protocol)
+Justification: Telnet transmits credentials in plaintext - use SSH instead
+Threat Severity: MEDIUM
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: PROTO-002
+Action: DROP
+Protocol: TCP
+Source: ANY:ANY
+Destination: 192.168.1.0/24:21
+Description: Block FTP control connections from external sources
+Justification: FTP is insecure - use SFTP or FTPS instead
+Threat Severity: MEDIUM
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: PROTO-003
+Action: DROP
+Protocol: TCP
+Source: ANY:ANY
+Destination: 192.168.1.0/24:139
+Description: Block NetBIOS Session Service
+Justification: NetBIOS is vulnerable to various attacks
+Threat Severity: MEDIUM
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: PROTO-004
+Action: DROP
+Protocol: UDP
+Source: ANY:ANY
+Destination: 192.168.1.0/24:137
+Description: Block NetBIOS Name Service
+Justification: NetBIOS can leak sensitive network information
+Threat Severity: MEDIUM
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: PROTO-005
+Action: DROP
+Protocol: TCP
+Source: 192.168.1.0/24:ANY
+Destination: ANY:25
+Description: Block outbound SMTP except from designated mail server
+Justification: Prevents spam and compromised hosts from sending mass emails
+Threat Severity: MEDIUM
+Logging: ENABLED
+Exception: Allow from 192.168.1.100 (mail server)
+------------------------------------------------------------------------------------------
+
+
+==========================================================================================
+RATE LIMITING RULES
+==========================================================================================
+
+Rule ID: RATE-001
+Action: RATE_LIMIT
+Protocol: TCP
+Source: ANY:ANY
+Destination: 192.168.1.0/24:80
+Description: Rate limit HTTP connections
+Justification: Prevent HTTP flood attacks
+Rate Limit: 100 connections/minute per source IP
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: RATE-002
+Action: RATE_LIMIT
+Protocol: TCP
+Source: ANY:ANY
+Destination: 192.168.1.0/24:443
+Description: Rate limit HTTPS connections
+Justification: Prevent HTTPS flood attacks
+Rate Limit: 100 connections/minute per source IP
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: RATE-003
+Action: RATE_LIMIT
+Protocol: TCP
+Source: ANY:ANY
+Destination: 192.168.1.50:22
+Description: Rate limit SSH connection attempts
+Justification: Prevent SSH brute force attacks
+Rate Limit: 5 connections/minute per source IP
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: RATE-004
+Action: RATE_LIMIT
+Protocol: ICMP
+Source: ANY:ANY
+Destination: 192.168.1.0/24:ANY
+Description: Rate limit ICMP echo requests
+Justification: Prevent ICMP flood attacks while allowing legitimate ping
+Rate Limit: 10 packets/second per source IP
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+Rule ID: RATE-005
+Action: RATE_LIMIT
+Protocol: UDP
+Source: 192.168.1.0/24:ANY
+Destination: ANY:53
+Description: Rate limit DNS queries
+Justification: Prevent DNS amplification attacks and excessive queries
+Rate Limit: 50 queries/minute per source IP
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+
+==========================================================================================
+DEFAULT RULES
+==========================================================================================
+
+Rule ID: DEFAULT-001
+Action: DROP
+Protocol: ANY
+Source: ANY:ANY
+Destination: 192.168.1.0/24:ANY
+Description: Default deny all traffic not explicitly permitted
+Justification: Security best practice - whitelist approach, deny all by default
+Logging: ENABLED
+------------------------------------------------------------------------------------------
+
+
+==========================================================================================
+IMPLEMENTATION GUIDE
+==========================================================================================
+
+1. Rule Order:
+   - Rules are processed in order: Baseline -> Threat-based -> Protocol -> Rate Limiting -> Default
+   - More specific rules should be placed before general rules
+
+2. Logging:
+   - All security-related rules have logging enabled
+   - Regular review of logs is essential for security monitoring
+
+3. Rate Limiting:
+   - Implement at network edge or using specialized DDoS protection
+   - Adjust thresholds based on legitimate traffic patterns
+
+4. Maintenance:
+   - Review and update rules regularly based on new threats
+   - Remove or adjust rules as network requirements change
+   - Monitor false positives and adjust accordingly
+
+5. Testing:
+   - Test rules in monitoring mode before enforcement
+   - Verify legitimate traffic is not blocked
+   - Document any changes or exceptions
+
